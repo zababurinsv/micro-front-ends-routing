@@ -6,7 +6,7 @@ import request from 'request';
 import colors from 'colors';
 
 const server = express();
-const port = 3000;
+const port = 8080;
 
 colors.setTheme({
   silly: 'rainbow',
