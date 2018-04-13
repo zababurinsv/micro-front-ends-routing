@@ -26,11 +26,12 @@ colors.setTheme({
 
 const getManifest = baseUrl => new Promise((resolve, reject) => {
   const url = `${baseUrl}/asset-manifest.json`;
-  request.get(url, (error, response, body) => {
-    if (error) return resolve(`Error loading ${url}: ${error.message}`);
-
-    return resolve(body);
-  });
+  console.log(`Request: ${url}`.debug);
+  request.get(url, (error, response, body) =>
+    error
+      ? reject(`Error loading ${url}: ${error.message}`)
+      : resolve(body)
+  );
 });
 
 // set the view engine to ejs
@@ -49,7 +50,9 @@ server.get('*', (req, res, next) => {
       component,
       title
     }) => {
-        Promise.all(assets.map(asset => getManifest(asset))).then(responses => {
+        const requests = assets.map(asset => getManifest(asset));
+        Promise.all(requests).then(responses => {
+            console.log(`Assets Retrieved: ${responses}`.debug);
             const css = responses.map((res, i) => `<link rel="stylesheet" href="${assets[i]}/${JSON.parse(res)['main.css']}"/>`).join('');
             const js = responses.map((res, i) => `<script src="${assets[i]}/${JSON.parse(res)['main.js']}"></script>`).join('');
             console.log(`Processing Path: ${req.path}`);
@@ -61,8 +64,8 @@ server.get('*', (req, res, next) => {
             });
           }
         ).catch(error => {
-          console.log(`Error found while processing promises: ${error.message}`);
-          res.send(error.message);
+          console.log(`Error found while processing promises: ${error}`);
+          res.send(error);
         });
       }
     ).catch(error => {
