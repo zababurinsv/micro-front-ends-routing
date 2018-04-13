@@ -1,4 +1,3 @@
-import 'node-fetch'; // Fetch polyfill
 import express from 'express';
 import UniversalRouter from 'universal-router';
 import ReactDOM from 'react-dom/server';
