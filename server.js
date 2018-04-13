@@ -6,7 +6,10 @@ import request from 'request';
 import colors from 'colors';
 
 const server = express();
-const port = 8080;
+
+// set the port of our application
+// process.env.PORT lets the port be set by Heroku
+const port = process.env.PORT || 8080;
 
 colors.setTheme({
   silly: 'rainbow',
@@ -30,6 +33,7 @@ const getManifest = baseUrl => new Promise((resolve, reject) => {
   });
 });
 
+// set the view engine to ejs
 server.set('view engine', 'ejs');
 
 server.get('*', (req, res, next) => {
