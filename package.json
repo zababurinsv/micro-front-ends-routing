@@ -3,6 +3,10 @@
     "start": "babel-node server.js --presets env,react"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "colors": "^1.2.1",
     "ejs": "^2.5.8",
     "express": "^4.16.3",
     "history": "^4.7.2",
@@ -11,11 +15,5 @@
     "react-dom": "^16.3.1",
     "request": "^2.85.0",
     "universal-router": "^6.0.0"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "colors": "^1.2.1"
   }
 }
