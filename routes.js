@@ -22,8 +22,8 @@ const routes = [
     action: () => ({
       title: 'Tally Tool',
       assets: [
-        'https://www.embengineering.com/micro-front-ends-standard-nav-bar',
-        'https://www.embengineering.com/micro-front-ends-tally'
+        'http://embengineering.com/micro-front-ends-standard-nav-bar',
+        'http://embengineering.com/micro-front-ends-tally'
       ],
       component:
         <div>
@@ -40,8 +40,8 @@ const routes = [
     action: () => ({
       title: 'Tally Tool',
       assets: [
-        'https://www.embengineering.com/micro-front-ends-standard-nav-bar',
-        'https://www.embengineering.com/micro-front-ends-tally'
+        'http://embengineering.com/micro-front-ends-standard-nav-bar',
+        'http://embengineering.com/micro-front-ends-tally'
       ],
       component:
         <div>
@@ -56,8 +56,8 @@ const routes = [
     action: () => ({
       title: '404 Not Found',
       assets: [
-        'https://www.embengineering.com/micro-front-ends-standard-nav-bar',
-        'https://www.embengineering.com/micro-front-ends-error-pages'
+        'http://embengineering.com/micro-front-ends-standard-nav-bar',
+        'http://embengineering.com/micro-front-ends-error-pages'
       ],
       component:
         <div>
