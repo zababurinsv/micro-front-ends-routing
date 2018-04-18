@@ -54,7 +54,7 @@ server.get('*', (req, res, next) => {
         Promise.all(requests).then(responses => {
             console.log(`Assets Retrieved: ${responses}`.debug);
             const css = responses.map((res, i) => `<link rel="stylesheet" href="${assets[i]}/${JSON.parse(res)['main.css']}"/>`).join('');
-            const js = responses.map((res, i) => `<script src="${assets[i]}/${JSON.parse(res)['main.js']}"></script>`).join('');
+            const js = responses.map((res, i) => `<script async src="${assets[i]}/${JSON.parse(res)['main.js']}"></script>`).join('');
             console.log(`Processing Path: ${req.path}`);
             res.render('index', {
               css,
